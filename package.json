@@ -1,7 +1,7 @@
 {
-  "name": "acala-subql-starter",
+  "name": "astar-subql-starter",
   "version": "0.0.4",
-  "description": "This SubQuery project can be use as a starting point for Acala network",
+  "description": "This SubQuery project can be use as a starting point for Astar network",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -b",
@@ -9,8 +9,8 @@
     "test": "jest",
     "codegen": "./node_modules/.bin/subql codegen"
   },
-  "homepage": "https://github.com/subquery/acala-subql-starter",
-  "repository": "github:subquery/acala-subql-starter",
+  "homepage": "https://github.com/subquery/astar-subql-starter",
+  "repository": "github:subquery/astar-subql-starter",
   "files": [
     "dist",
     "schema.graphql",
@@ -22,8 +22,7 @@
     "@polkadot/api": "^7",
     "@subql/types": "latest",
     "typescript": "^4.1.3",
-    "@subql/cli": "latest",
-    "@acala-network/type-definitions": "latest"
+    "@subql/cli": "latest"
   },
   "exports": {
     "chaintypes": "src/chaintypes.ts"

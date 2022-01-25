@@ -1,3 +1,36 @@
-import { typesBundleForPolkadot } from "@acala-network/type-definitions";
+import type { OverrideBundleDefinition } from "@polkadot/types/types";
 
-export default { typesBundle: typesBundleForPolkadot };
+const definitions: OverrideBundleDefinition = {
+    types: [
+        {
+            // on all versions
+            minmax: [0, undefined],
+            types: {
+                Keys: "AccountId",
+                Address: "MultiAddress",
+                LookupSource: "MultiAddress",
+                AmountOf: "Amount",
+                Amount: "i128",
+                SmartContract: {
+                    _enum: {
+                        Evm: "H160",
+                        Wasm: "AccountId",
+                    },
+                },
+                EraStakingPoints: {
+                    total: "Balance",
+                    stakers: "BTreeMap<AccountId, Balance>",
+                    formerStakedEra: "EraIndex",
+                    claimedRewards: "Balance",
+                },
+                EraRewardAndStake: {
+                    rewards: "Balance",
+                    staked: "Balance",
+                },
+                EraIndex: "u32",
+            },
+        },
+    ],
+};
+
+export default { typesBundle: definitions };
