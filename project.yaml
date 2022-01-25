@@ -1,0 +1,25 @@
+specVersion: 0.2.0
+name: acala-subql-starter
+version: 0.0.4
+description: This project can be use as a starting po...
+repository: https://github.com/subquery/acala-subql-starter
+schema:
+  file: ./schema.graphql
+network:
+  endpoint: wss://acala-polkadot.api.onfinality.io/public-ws
+  genesisHash: '0xfc41b9bd8ef8fe53d58c7ea67c794c7ec9a73daf05e6d54b14ff6342c99ba64c'
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
+        - handler: handleEvent
+          kind: substrate/EventHandler
+          filter:
+            module: balances
+            method: Deposit
+        - handler: handleCall
+          kind: substrate/CallHandler
